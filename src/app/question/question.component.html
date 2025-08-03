@@ -1,0 +1,17 @@
+<div class="question-container">
+  <div class="question-title">
+    ARE YOUR <em>OPINIONS</em> USUALLY GUIDED BY:
+  </div>
+  <form [formGroup]="form">
+    <div class="options">
+      <label class="option-label">
+        <input type="radio" class="option-radio" formControlName="opinion" value="logic" />
+        Logic and facts
+      </label>
+      <label class="option-label">
+        <input type="radio" class="option-radio" formControlName="opinion" value="emotions" />
+        Emotions and feelings
+      </label>
+    </div>
+  </form>
+</div>
