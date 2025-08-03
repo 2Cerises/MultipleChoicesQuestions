@@ -1,0 +1,20 @@
+{
+  "questions": [
+    {
+      "id": "opinion",
+      "title": "ARE YOUR <em>OPINIONS</em> USUALLY GUIDED BY:",
+      "options": [
+        { "value": "logic", "label": "Logic and facts" },
+        { "value": "emotions", "label": "Emotions and feelings" }
+      ]
+    },
+    {
+      "id": "movieType",
+      "title": "DO YOU <em>CONSIDER YOURSELF</em> MORE OF A...",
+      "options": [
+        { "value": "author", "label": "Author's film enthusiast" },
+        { "value": "mainstream", "label": "Mainstream blockbuster lover" }
+      ]
+    }
+  ]
+}

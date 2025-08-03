@@ -1,14 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-question',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './question.component.html',
   styleUrl: './question.component.css'
 })
-export class QuestionComponent {
-  form = new FormGroup({
-    opinion: new FormControl('')
-  });
+export class QuestionComponent implements OnInit {
+  @Input() id: string = '';
+
+  questionTitle: string = '';
+  options: { value: string; label: string }[] = [];
+  controlName: string = 'answer';
+  form = new FormGroup({});
+
+  async ngOnInit() {
+    // Load questions from i18n JSON file
+    const response = await fetch('assets/i18n/questions.en.json');
+    const data = await response.json();
+    const question = data.questions.find((q: any) => q.id === this.id);
+    if (question) {
+      this.questionTitle = question.title;
+      this.options = question.options;
+      this.controlName = question.id;
+      this.form.addControl(this.controlName, new FormControl(''));
+    }
+  }
 }
