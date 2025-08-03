@@ -67,6 +67,13 @@
   box-shadow: 4px 6px 0 #222;
 }
 
+.selected-option {
+  background: #222 !important;
+  color: #fff !important;
+  border-color: #222 !important;
+  box-shadow: 4px 6px 0 #222 !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .question-title {

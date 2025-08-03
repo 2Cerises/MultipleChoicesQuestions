@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class QuestionComponent implements OnInit {
   @Input() id: string = '';
+  @Output() selected = new EventEmitter<void>();
 
   questionTitle: string = '';
   options: { value: string; label: string }[] = [];
@@ -27,5 +28,14 @@ export class QuestionComponent implements OnInit {
       this.controlName = question.id;
       this.form.addControl(this.controlName, new FormControl(''));
     }
+  }
+
+  onSelect(value: string) {
+    this.form.get(this.controlName)?.setValue(value);
+    this.selected.emit();
+  }
+
+  isSelected(value: string): boolean {
+    return this.form.get(this.controlName)?.value === value;
   }
 }
