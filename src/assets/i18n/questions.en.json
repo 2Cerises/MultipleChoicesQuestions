@@ -15,6 +15,15 @@
         { "value": "author", "label": "Author's film enthusiast" },
         { "value": "mainstream", "label": "Mainstream blockbuster lover" }
       ]
+    },
+     {
+      "id": "musicGenre",
+      "title": "WOULD YOU RATHER LISTEN TO <em>ROCK OR RAP</em> ?",
+      "options": [
+        { "value": "rap", "label": "Rap" },
+        { "value": "rock", "label": "Rock" },
+        { "value": "neither", "label": "Neither" }
+      ]
     }
 
   ]
