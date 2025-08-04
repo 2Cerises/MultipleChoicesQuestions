@@ -11,13 +11,15 @@
              placeholder="Search country..."
              class="country-input" />
     </div>
-    <div class="country-dropdown" *ngIf="filteredCountries.length > 1">
+    <div class="country-dropdown" *ngIf="dropdownOpen">
       <div class="country-option" *ngFor="let country of filteredCountries" (click)="selectCountry(country)">
         {{ country.name }} <span class="flag">{{ country.flag }}</span>
       </div>
     </div>
     <div class="country-selected" *ngIf="filteredCountries.length === 1">
-      {{ filteredCountries[0].name }} <span class="flag">{{ filteredCountries[0].flag }}</span>
+      <div class="country-option" (click)="selectCountry(filteredCountries[0])">
+        {{ filteredCountries[0].name }} <span class="flag">{{ filteredCountries[0].flag }}</span>
+      </div>
     </div>
   </div>
 </div>
