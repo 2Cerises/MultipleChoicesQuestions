@@ -10,12 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class QuestionComponent implements OnInit {
   @Input() id: string = '';
+  @Input() form:FormGroup = new FormGroup({});
   @Output() selected = new EventEmitter<void>();
 
   questionTitle: string = '';
   options: { value: string; label: string }[] = [];
   controlName: string = 'answer';
-  form = new FormGroup({});
 
   async ngOnInit() {
     // Load questions from i18n JSON file
