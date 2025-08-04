@@ -3,7 +3,9 @@
     {
       "id": "introvert",
       "type": "range",
-      "text": "I AM AN <em>INTROVERT</em> PERSON"
+      "text": "I AM AN <em>INTROVERT</em> PERSON",
+      "minLabel": "Strongly Disagree",
+      "maxLabel": "Strongly Agree"
     },
     {
       "id": "opinion",
