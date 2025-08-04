@@ -30,6 +30,11 @@
       ]
     },
     {
+      "id": "country",
+      "type": "country",
+      "text": "WHAT COUNTRY <em>ARE YOU FROM?</em>"
+    },
+    {
       "id": "introvert",
       "type": "range",
       "text": "I AM AN <em>INTROVERT</em> PERSON",

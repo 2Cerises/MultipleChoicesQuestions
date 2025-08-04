@@ -1,0 +1,24 @@
+<div class="country-question-container">
+  <div class="question-title">
+    <span [innerHTML]="questionText"></span>
+  </div>
+  <div class="country-search-wrapper">
+    <div class="country-search-box">
+      <span class="search-icon">&#128269;</span>
+      <input type="text"
+             [value]="search"
+             (input)="onSearchChange($any($event.target).value)"
+             placeholder="Search country..."
+             class="country-input" />
+    </div>
+    <div class="country-dropdown" *ngIf="filteredCountries.length > 1">
+      <div class="country-option" *ngFor="let country of filteredCountries" (click)="selectCountry(country)">
+        {{ country.name }} <span class="flag">{{ country.flag }}</span>
+      </div>
+    </div>
+    <div class="country-selected" *ngIf="filteredCountries.length === 1">
+      {{ filteredCountries[0].name }} <span class="flag">{{ filteredCountries[0].flag }}</span>
+    </div>
+  </div>
+</div>
+<p>country-question works!</p>

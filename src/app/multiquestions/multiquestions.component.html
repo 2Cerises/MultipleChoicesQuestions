@@ -13,12 +13,11 @@
             <mat-icon>←</mat-icon>
           </button>
         </div>
-        <ng-container *ngIf="q.type === 'range'; else normalQuestion">
-          <app-range-question [questionText]="q.text" [control]="getFormControl(i)" (answered)="stepper.next()"></app-range-question>
+        <ng-container [ngSwitch]="q.type">
+          <app-range-question *ngSwitchCase="'range'" [questionText]="q.text" [control]="getFormControl(i)" (answered)="stepper.next()"></app-range-question>
+          <app-country-question *ngSwitchCase="'country'" [questionText]="q.text" [control]="getFormControl(i)" (answered)="stepper.next()"></app-country-question>
+          <app-question *ngSwitchDefault [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
         </ng-container>
-        <ng-template #normalQuestion>
-          <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
-        </ng-template>
       </div>
     </mat-step>
     <mat-step>
