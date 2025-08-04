@@ -7,11 +7,13 @@
   <mat-horizontal-stepper #stepper [linear]="true" class="no-labels-stepper">
     <mat-step *ngFor="let q of questions; let i = index" [stepControl]="formGroups[i]">
       <ng-template matStepLabel></ng-template>
-      <div>
-        <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
-        <div class="step-controls">
-          <button mat-button matStepperPrevious type="button" *ngIf="i > 0">Back</button>
+      <div class="question-step-container">
+        <div class="step-controls-upper">
+          <button mat-icon-button matStepperPrevious type="button" *ngIf="i > 0" aria-label="Back">
+            <mat-icon>←</mat-icon>
+          </button>
         </div>
+        <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
       </div>
     </mat-step>
     <mat-step>

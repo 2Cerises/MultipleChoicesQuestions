@@ -1,3 +1,19 @@
+.question-step-container {
+  position: relative;
+}
+
+.step-controls-upper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.step-controls-upper button[mat-icon-button] {
+  background: transparent;
+  box-shadow: none;
+  margin: 8px;
+}
 :host ::ng-deep .mat-horizontal-stepper-header-container {
     display: none;
 }
