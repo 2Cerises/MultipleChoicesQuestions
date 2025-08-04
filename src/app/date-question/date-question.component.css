@@ -1,0 +1,85 @@
+/* Center the question and make layout responsive */
+.date-question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #faecd6;
+}
+
+.question-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #222;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.question-title em {
+  font-style: italic;
+}
+
+.date-input-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+.date-input {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 2rem 1rem;
+  border: 3px solid #222;
+  border-radius: 2rem;
+  box-shadow: 2px 3px 0 #222;
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.date-input:focus {
+  box-shadow: 4px 6px 0 #222;
+  border-color: #444;
+}
+
+.submit-btn {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  background: #222;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 2px 3px 0 #222;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.submit-btn:hover,
+.submit-btn:active {
+  box-shadow: 4px 6px 0 #222;
+  background: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .question-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  .date-input-wrapper {
+    max-width: 100%;
+    margin-bottom: 1.2rem;
+  }
+  .date-input {
+    font-size: 1.1rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .submit-btn {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}

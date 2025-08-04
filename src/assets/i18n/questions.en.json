@@ -29,6 +29,7 @@
         { "value": "neither", "label": "Neither" }
       ]
     },
+   
     {
       "id": "country",
       "type": "country",
@@ -40,6 +41,11 @@
       "text": "I AM AN <em>INTROVERT</em> PERSON",
       "minLabel": "Strongly Disagree",
       "maxLabel": "Strongly Agree"
+    },
+     {
+      "id": "birthday",
+      "type": "date",
+      "text": "WHEN IS YOUR <em>BIRTHDAY?</em>"
     }
 
   ]

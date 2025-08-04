@@ -1,0 +1,11 @@
+<div class="date-question-container">
+  <div class="question-title">
+    <span [innerHTML]="questionText"></span>
+  </div>
+  <div class="date-input-wrapper">
+    <input type="date"
+           [formControl]="control"
+           class="date-input" />
+  </div>
+  <button class="submit-btn" type="button" (click)="submit()">Submit</button>
+</div>

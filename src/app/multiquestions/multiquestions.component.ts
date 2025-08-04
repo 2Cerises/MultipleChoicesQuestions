@@ -8,12 +8,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { RangeQuestionComponent } from '../range-question/range-question.component';
 import { CountryQuestionComponent } from '../country-question/country-question.component';
+import { DateQuestionComponent } from '../date-question/date-question.component';
 
 
 @Component({
   selector: 'app-multiquestions',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule, MatProgressBarModule, MatIconModule, RangeQuestionComponent, CountryQuestionComponent],
+  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule, MatProgressBarModule, MatIconModule, RangeQuestionComponent, CountryQuestionComponent, DateQuestionComponent],
   templateUrl: './multiquestions.component.html',
   styleUrl: './multiquestions.component.css'
 })

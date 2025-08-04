@@ -16,17 +16,11 @@
         <ng-container [ngSwitch]="q.type">
           <app-range-question *ngSwitchCase="'range'" [questionText]="q.text" [control]="getFormControl(i)" (answered)="stepper.next()"></app-range-question>
           <app-country-question *ngSwitchCase="'country'" [questionText]="q.text" [control]="getFormControl(i)" (answered)="stepper.next()"></app-country-question>
+          <app-date-question *ngSwitchCase="'date'" [questionText]="q.text" [control]="getFormControl(i)" (answered)="onSubmit(); stepper.next()"></app-date-question>
           <app-question *ngSwitchDefault [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
         </ng-container>
       </div>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel></ng-template>
-      <div class="completion-message">
-        <h3>All questions answered!</h3>
-        <button mat-button color="primary" type="button" (click)="onSubmit()">Submit</button>
-        <button mat-button type="button" (click)="resetStepper(stepper)">Reset</button>
-      </div>
-    </mat-step>
+    <!-- Removed final step with submit and reset buttons -->
   </mat-horizontal-stepper>
 </div>
