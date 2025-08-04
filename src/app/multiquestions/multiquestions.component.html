@@ -2,10 +2,9 @@
   <mat-step *ngFor="let q of questions; let i = index" [stepControl]="formGroups[i]">
     <ng-template matStepLabel>Question {{ i + 1 }}</ng-template>
     <div>
-      <app-question [id]="q.id" [control]="getFormControl(i)"></app-question>
+      <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
       <div class="step-controls">
         <button mat-button matStepperPrevious type="button" *ngIf="i > 0">Back</button>
-        <button mat-button matStepperNext type="button" [disabled]="formGroups[i].invalid">Next</button>
       </div>
     </div>
   </mat-step>

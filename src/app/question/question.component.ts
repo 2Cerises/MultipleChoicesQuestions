@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class QuestionComponent implements OnInit {
   @Input() id: string = '';
   @Input() control!: FormControl;
+  @Output() answered = new EventEmitter<void>();
 
   questionTitle: string = '';
   options: { value: string; label: string }[] = [];
@@ -29,6 +30,7 @@ export class QuestionComponent implements OnInit {
 
   onSelect(value: string) {
     this.control.setValue(value);
+    this.answered.emit();
   }
 
   isSelected(value: string): boolean {
