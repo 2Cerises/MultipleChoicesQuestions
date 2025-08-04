@@ -1,14 +1,9 @@
 {
   "questions": [
-    {
-      "id": "introvert",
-      "type": "range",
-      "text": "I AM AN <em>INTROVERT</em> PERSON",
-      "minLabel": "Strongly Disagree",
-      "maxLabel": "Strongly Agree"
-    },
+    
     {
       "id": "opinion",
+      "type": "multipleChoice",
       "title": "ARE YOUR <em>OPINIONS</em> USUALLY GUIDED BY:",
       "options": [
         { "value": "logic", "label": "Logic and facts" },
@@ -17,20 +12,29 @@
     },
     {
       "id": "movieType",
+      "type": "multipleChoice",
       "title": "DO YOU <em>CONSIDER YOURSELF</em> MORE OF A...",
       "options": [
         { "value": "author", "label": "Author's film enthusiast" },
         { "value": "mainstream", "label": "Mainstream blockbuster lover" }
       ]
     },
-     {
+    {
       "id": "musicGenre",
+      "type": "multipleChoice",
       "title": "WOULD YOU RATHER LISTEN TO <em>ROCK OR RAP</em> ?",
       "options": [
         { "value": "rap", "label": "Rap" },
         { "value": "rock", "label": "Rock" },
         { "value": "neither", "label": "Neither" }
       ]
+    },
+    {
+      "id": "introvert",
+      "type": "range",
+      "text": "I AM AN <em>INTROVERT</em> PERSON",
+      "minLabel": "Strongly Disagree",
+      "maxLabel": "Strongly Agree"
     }
 
   ]
