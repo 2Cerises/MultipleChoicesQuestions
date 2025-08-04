@@ -13,7 +13,12 @@
             <mat-icon>←</mat-icon>
           </button>
         </div>
-        <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
+        <ng-container *ngIf="q.type === 'range'; else normalQuestion">
+          <app-range-question [questionText]="q.text" [control]="getFormControl(i)" (answered)="stepper.next()"></app-range-question>
+        </ng-container>
+        <ng-template #normalQuestion>
+          <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
+        </ng-template>
       </div>
     </mat-step>
     <mat-step>

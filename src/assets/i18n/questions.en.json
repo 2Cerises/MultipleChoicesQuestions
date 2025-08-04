@@ -1,6 +1,11 @@
 {
   "questions": [
     {
+      "id": "introvert",
+      "type": "range",
+      "text": "I AM AN <em>INTROVERT</em> PERSON"
+    },
+    {
       "id": "opinion",
       "title": "ARE YOUR <em>OPINIONS</em> USUALLY GUIDED BY:",
       "options": [

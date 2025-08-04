@@ -1,0 +1,22 @@
+<div class="range-question-container">
+  <div class="question-title">
+    <span [innerHTML]="questionText"></span>
+  </div>
+  <div class="range-labels-top">
+    <span class="range-label left">Strongly Disagree</span>
+  </div>
+  <div class="range-options">
+    <div class="range-row">
+      <button *ngFor="let num of rangeNumbers"
+              class="range-option"
+              [class.selected]="control.value === num"
+              (click)="select(num)"
+              type="button">
+        {{ num }}
+      </button>
+    </div>
+    <div class="range-labels-bottom">
+      <span class="range-label right">Strongly Agree</span>
+    </div>
+  </div>
+</div>

@@ -6,12 +6,13 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { RangeQuestionComponent } from '../range-question/range-question.component';
 
 
 @Component({
   selector: 'app-multiquestions',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule, MatProgressBarModule, MatIconModule],
+  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule, MatProgressBarModule, MatIconModule, RangeQuestionComponent],
   templateUrl: './multiquestions.component.html',
   styleUrl: './multiquestions.component.css'
 })
