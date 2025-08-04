@@ -1,21 +1,19 @@
 <div class="question-container">
   <div class="question-title" [innerHTML]="questionTitle"></div>
-  <form [formGroup]="form">
-    <div class="options">
-      <label
-        class="option-label"
-        *ngFor="let option of options"
-        [class.selected-option]="isSelected(option.value)"
-        (click)="onSelect(option.value)"
-      >
-        <input
-          type="radio"
-          class="option-radio"
-          [formControlName]="controlName"
-          [value]="option.value"
-        />
-        {{ option.label }}
-      </label>
-    </div>
-  </form>
+  <div class="options">
+    <label
+      class="option-label"
+      *ngFor="let option of options"
+      [class.selected-option]="isSelected(option.value)"
+    >
+      <input
+        type="radio"
+        class="option-radio"
+        [value]="option.value"
+        [checked]="control.value === option.value"
+        (change)="onSelect(option.value)"
+      />
+      {{ option.label }}
+    </label>
+  </div>
 </div>

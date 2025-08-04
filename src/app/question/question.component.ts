@@ -1,21 +1,20 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-question',
-  imports: [ReactiveFormsModule, CommonModule],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './question.component.html',
   styleUrl: './question.component.css'
 })
 export class QuestionComponent implements OnInit {
   @Input() id: string = '';
-  @Output() selected = new EventEmitter<void>();
+  @Input() control!: FormControl;
 
   questionTitle: string = '';
   options: { value: string; label: string }[] = [];
-  controlName: string = 'answer';
-  form = new FormGroup({});
 
   async ngOnInit() {
     // Load questions from i18n JSON file
@@ -25,17 +24,14 @@ export class QuestionComponent implements OnInit {
     if (question) {
       this.questionTitle = question.title;
       this.options = question.options;
-      this.controlName = question.id;
-      this.form.addControl(this.controlName, new FormControl(''));
     }
   }
 
   onSelect(value: string) {
-    this.form.get(this.controlName)?.setValue(value);
-    this.selected.emit();
+    this.control.setValue(value);
   }
 
   isSelected(value: string): boolean {
-    return this.form.get(this.controlName)?.value === value;
+    return this.control.value === value;
   }
 }

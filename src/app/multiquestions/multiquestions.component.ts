@@ -1,25 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { QuestionComponent } from '../question/question.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-multiquestions',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, QuestionComponent],
+  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule],
   templateUrl: './multiquestions.component.html',
   styleUrl: './multiquestions.component.css'
 })
 export class MultiquestionsComponent implements OnInit {
   questions: any[] = [];
-  form = new FormGroup({});
+  formGroups: FormGroup[] = [];
+  allAnswers: any = {};
+
+  constructor(private fb: FormBuilder) {}
 
   async ngOnInit() {
     const response = await fetch('assets/i18n/questions.en.json');
     const data = await response.json();
     this.questions = data.questions;
-    this.questions.forEach(q => {
-      this.form.addControl(q.id, new FormControl(''));
+    this.formGroups = this.questions.map(q =>
+      this.fb.group({ answer: ['', Validators.required] })
+    );
+  }
+
+  onSubmit() {
+    this.allAnswers = {};
+    this.questions.forEach((q, i) => {
+      this.allAnswers[q.id] = this.formGroups[i].get('answer')?.value;
     });
+    // Handle submission logic here (e.g., send to API)
+    console.log('Submitted answers:', this.allAnswers);
+  }
+
+  resetStepper(stepper: any) {
+    this.formGroups.forEach(fg => fg.reset());
+    stepper.reset();
+  }
+
+  getFormControl(i: number): FormControl {
+    return this.formGroups[i].get('answer') as FormControl;
   }
 }
