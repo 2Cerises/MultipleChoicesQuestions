@@ -1,19 +1,27 @@
-<mat-horizontal-stepper #stepper [linear]="true">
-  <mat-step *ngFor="let q of questions; let i = index" [stepControl]="formGroups[i]">
-    <ng-template matStepLabel>Question {{ i + 1 }}</ng-template>
-    <div>
-      <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
-      <div class="step-controls">
-        <button mat-button matStepperPrevious type="button" *ngIf="i > 0">Back</button>
+<mat-progress-bar
+  mode="determinate"
+  [value]="(stepper.selectedIndex + 1) / questions.length * 100"
+  style="margin-bottom: 32px;"
+></mat-progress-bar>
+
+<div class="stepper-wrapper">
+  <mat-horizontal-stepper #stepper [linear]="true" class="no-labels-stepper">
+    <mat-step *ngFor="let q of questions; let i = index" [stepControl]="formGroups[i]">
+      <ng-template matStepLabel></ng-template>
+      <div>
+        <app-question [id]="q.id" [control]="getFormControl(i)" (answered)="stepper.next()"></app-question>
+        <div class="step-controls">
+          <button mat-button matStepperPrevious type="button" *ngIf="i > 0">Back</button>
+        </div>
       </div>
-    </div>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Complete</ng-template>
-    <div class="completion-message">
-      <h3>All questions answered!</h3>
-      <button mat-button color="primary" type="button" (click)="onSubmit()">Submit</button>
-      <button mat-button type="button" (click)="resetStepper(stepper)">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel></ng-template>
+      <div class="completion-message">
+        <h3>All questions answered!</h3>
+        <button mat-button color="primary" type="button" (click)="onSubmit()">Submit</button>
+        <button mat-button type="button" (click)="resetStepper(stepper)">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

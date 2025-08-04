@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { QuestionComponent } from '../question/question.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @Component({
   selector: 'app-multiquestions',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule],
+  imports: [ReactiveFormsModule, CommonModule, QuestionComponent, MatStepperModule, MatButtonModule,MatProgressBarModule],
   templateUrl: './multiquestions.component.html',
   styleUrl: './multiquestions.component.css'
 })
