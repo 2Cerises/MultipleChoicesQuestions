@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MultiquestionsComponent } from "./multiquestions/multiquestions.component";
+import { RouterModule } from "@angular/router";
 @Component({
   selector: 'app-root',
-  imports: [MultiquestionsComponent],
+  imports: [RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

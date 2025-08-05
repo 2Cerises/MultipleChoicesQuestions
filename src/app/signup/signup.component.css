@@ -1,0 +1,5 @@
+ amplify-sign-in,
+ amplify-forgot-password,
+ amplify-confirm-sign-in {
+     display: none !important;
+ }

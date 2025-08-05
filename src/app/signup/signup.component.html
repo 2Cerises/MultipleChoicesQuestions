@@ -1,0 +1,10 @@
+<b>🎉 Great news! We've found plenty of people who match your personality. Sign up for free to discover your matches!</b>
+
+
+<amplify-authenticator initialState="signUp"  [formFields]="formFields">
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut">
+  </ng-template>
+</amplify-authenticator>
