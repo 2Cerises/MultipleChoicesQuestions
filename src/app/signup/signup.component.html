@@ -1,10 +1,37 @@
-<b>🎉 Great news! We've found plenty of people who match your personality. Sign up for free to discover your matches!</b>
+<div class="signup-container">
+  <div class="signup-title">
+    🎉 Great news! We've found plenty of people who match your personality.<br>
+    <b>Sign up for free to discover your matches!</b>
+  </div>
 
+  <form *ngIf="!showVerification" [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+    <div class="form-row">
+      <input formControlName="firstName" type="text" placeholder="First Name" class="form-input" />
+      <input formControlName="lastName" type="text" placeholder="Last Name" class="form-input" />
+    </div>
+    <div class="form-row">
+      <input formControlName="username" type="text" placeholder="Username" class="form-input" />
+    </div>
+    <div class="form-row">
+      <input formControlName="email" type="email" placeholder="Email" class="form-input" />
+    </div>
+    <div class="form-row">
+      <input formControlName="password" type="password" placeholder="Password" class="form-input" />
+    </div>
+    <div class="form-row">
+      <input formControlName="confirmPassword" type="password" placeholder="Confirm Password" class="form-input" />
+    </div>
+    <button class="submit-btn" type="submit">Sign Up</button>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+    <div *ngIf="success" class="success-message">{{ success }}</div>
+  </form>
 
-<amplify-authenticator initialState="signUp"  [formFields]="formFields">
-  <ng-template
-    amplifySlot="authenticated"
-    let-user="user"
-    let-signOut="signOut">
-  </ng-template>
-</amplify-authenticator>
+  <form *ngIf="showVerification" [formGroup]="verificationForm" (ngSubmit)="onVerify()" class="signup-form">
+    <div class="form-row">
+      <input formControlName="code" type="text" placeholder="Enter verification code" class="form-input" />
+    </div>
+    <button class="submit-btn" type="submit">Verify</button>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+    <div *ngIf="success" class="success-message">{{ success }}</div>
+  </form>
+</div>
