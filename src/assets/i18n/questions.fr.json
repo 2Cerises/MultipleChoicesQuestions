@@ -1,0 +1,49 @@
+{
+  "questions": [
+    {
+      "id": "opinion",
+      "type": "multipleChoice",
+      "title": "VOS <em>OPINIONS</em> SONT-ELLES GÉNÉRALEMENT GUIDÉES PAR :",
+      "options": [
+        { "value": "logic", "label": "Logique et faits" },
+        { "value": "emotions", "label": "Émotions et sentiments" }
+      ]
+    },
+    {
+      "id": "movieType",
+      "type": "multipleChoice",
+      "title": "VOUS CONSIDÉREZ-VOUS PLUTÔT COMME...",
+      "options": [
+        { "value": "author", "label": "Amateur de films d'auteur" },
+        { "value": "mainstream", "label": "Fan de blockbusters grand public" }
+      ]
+    },
+    {
+      "id": "musicGenre",
+      "type": "multipleChoice",
+      "title": "PRÉFÉREZ-VOUS ÉCOUTER DU <em>ROCK OU DU RAP</em> ?",
+      "options": [
+        { "value": "rap", "label": "Rap" },
+        { "value": "rock", "label": "Rock" },
+        { "value": "neither", "label": "Aucun des deux" }
+      ]
+    },
+    {
+      "id": "country",
+      "type": "country",
+      "text": "DE QUEL PAYS <em>ÊTES-VOUS</em> ?"
+    },
+    {
+      "id": "introvert",
+      "type": "range",
+      "text": "JE SUIS UNE PERSONNE <em>INTROVERTIE</em>",
+      "minLabel": "Totalement en désaccord",
+      "maxLabel": "Totalement d'accord"
+    },
+    {
+      "id": "birthday",
+      "type": "date",
+      "text": "QUELLE EST VOTRE <em>DATE DE NAISSANCE</em> ?"
+    }
+  ]
+}

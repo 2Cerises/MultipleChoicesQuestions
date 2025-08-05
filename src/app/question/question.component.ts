@@ -19,7 +19,8 @@ export class QuestionComponent implements OnInit {
 
   async ngOnInit() {
     // Load questions from i18n JSON file
-    const response = await fetch('assets/i18n/questions.en.json');
+    const language = sessionStorage.getItem('language') || 'en'; // Default to 'en' if not set
+    const response = await fetch(`assets/i18n/questions.${language}.json`);
     const data = await response.json();
     const question = data.questions.find((q: any) => q.id === this.id);
     if (question) {

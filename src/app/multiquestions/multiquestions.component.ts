@@ -22,11 +22,17 @@ export class MultiquestionsComponent implements OnInit {
   questions: any[] = [];
   formGroups: FormGroup[] = [];
   allAnswers: any = {};
+  language: string = 'fr'; // default language
 
   constructor(private fb: FormBuilder) {}
 
   async ngOnInit() {
-    const response = await fetch('assets/i18n/questions.en.json');
+    sessionStorage.setItem('language', this.language);
+    await this.loadQuestions();
+  }
+
+  async loadQuestions() {
+    const response = await fetch(`assets/i18n/questions.${this.language}.json`);
     const data = await response.json();
     this.questions = data.questions;
     this.formGroups = this.questions.map(q =>

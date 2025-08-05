@@ -1,3 +1,36 @@
+/* Header UI language switcher */
+.header-ui {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 24px 32px 0 0;
+}
+.lang-switcher {
+  display: flex;
+  gap: 12px;
+}
+.lang-btn {
+  background: #fff;
+  border: 2px solid #222;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-btn.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+.earth-icon {
+  font-size: 1.3rem;
+}
 .question-step-container {
   position: relative;
 }
