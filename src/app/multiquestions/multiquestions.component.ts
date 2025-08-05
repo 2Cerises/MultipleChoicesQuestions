@@ -22,7 +22,7 @@ export class MultiquestionsComponent implements OnInit {
   questions: any[] = [];
   formGroups: FormGroup[] = [];
   allAnswers: any = {};
-  language: string = 'fr'; // default language
+  language: string = 'en'; // default language
 
   constructor(private fb: FormBuilder) {}
 
